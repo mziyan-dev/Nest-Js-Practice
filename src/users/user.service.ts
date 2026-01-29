@@ -1,13 +1,7 @@
 import { Injectable } from "@nestjs/common";
 
 
-
-
-
 @Injectable()
-
-
-
 export class UserService {
     findOne(){
         return "This is User Service"
@@ -16,3 +10,4 @@ export class UserService {
         return "This are my all users"
     }
 }
+
