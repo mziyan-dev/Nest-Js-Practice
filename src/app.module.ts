@@ -17,17 +17,16 @@ import { EvService } from './ev/ev.service';
 import { EvController } from './ev/ev.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { StudentModule } from './student/student.module';
-import { LibraryService } from './library/library.service';
-import { LibraryController } from './library/library.controller';
 import { LibraryModule } from './library/library.module';
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true, }),
     UserModule, ProductModule, EmployeeModule, CustomerModule, CetegoryModule, MongooseModule.forRoot(process.env.MONGO_URI!), StudentModule, LibraryModule],
-  controllers: [AppController, MynameController, UserRoleController, ExceptionController, DatabaseController, EvController, LibraryController],
-  providers: [AppService, DatabaseService, EvService, LibraryService],
+  controllers: [AppController, MynameController, UserRoleController, ExceptionController, DatabaseController, EvController],
+  providers: [AppService, DatabaseService, EvService],
 })
 export class AppModule implements NestModule {
+
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware).forRoutes('*');
 

@@ -27,7 +27,6 @@ export class EmployeeService {
       return this.employeeModel.find().populate('profile').exec();
       }
       
-
 }
 
 
