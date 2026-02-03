@@ -6,15 +6,15 @@ import { AuthGuard } from 'src/guards/auth/auth.guard';
 
 @Controller('product')
 export class ProductController {
-  constructor(private readonly productService: ProductService) {}
-    @Get()
-    @UseGuards(AuthGuard)
-  getAllProducts() {
-    return this.productService.getAllProducts();
-  }
-  @Get(':id')
-  getProductById(@Param('id') id: string) {
-    return this.productService.getProductById(Number(id));
+  constructor(private readonly productService: ProductService) { }
+  @Post()
+  async createProduct() {
+    return this.productService.createProduct();
   }
 
+
+  @Get()
+  async GetAllProducts() {
+    return this.productService.GetAllProducts();
+  }
 }
